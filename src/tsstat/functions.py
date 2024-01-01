@@ -2,7 +2,7 @@
 Functions Component
 -------------------
 
-
+@author tsarsalesman
 """
 from utils import qsort
 
@@ -135,3 +135,22 @@ def sterror(data, sample=False):
 
 def coeffvar(data, sample=False):
     return (stdev(data, sample) / mean(data))*100
+
+def cohen(data1, data2, ddof1, ddof2):
+    """
+    Compute the Cohen's D effect size.
+
+    Params
+    ------
+    data1 : list or tuple or set
+        Dataset 1.
+    data2 : list or tuple or set
+        Dataset 2.
+    ddof1 : int, optional
+        Delta degrees of freedom for 1st dataset. Defaults to 1.
+    ddof2 : int, optional
+        Delta degrees of freedom for 2nd dataset. Defaults to 1.
+    """
+    n = [len(data1), len(data2)]
+    return (mean(data1) - mean(data2))/((((n[0]-1)*(std(data1, ddof=ddof1))**2)+
+            ((n[1]-1)*(std(data2, ddof=ddof2))**2))/(n[0]+n[1]-2))**0.5)
