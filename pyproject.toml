@@ -1,0 +1,20 @@
+[project]
+name = "the_tsarsalesman_statistics_library"
+version = "0.1.0"
+authors = [{name="tsarsalesman", email="hw9692@bard.edu"},]
+description = "A lite-weight statistics package"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+	"Programming Language :: Python :: 3",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/tsarsalesma/tsstat"
+Issues = "https://github.com/tsarsalesma/tsstat/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
