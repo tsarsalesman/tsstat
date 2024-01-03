@@ -155,26 +155,6 @@ def cohen(data1, data2, ddof1, ddof2):
     return (mean(data1) - mean(data2))/((((n[0]-1)*(std(data1, ddof=ddof1))**2)+
             ((n[1]-1)*(std(data2, ddof=ddof2))**2))/(n[0]+n[1]-2))**0.5)
 
-def diff(A, B):
-    """Finds the difference between two given lists of ints.
-
-    Params
-    ------
-    A : array_like
-        An array of integers
-    B : array_like
-        An array of integers
-
-    Returns
-    -------
-    Difference : array_like
-        The difference between each associated value.
-    """
-    diffs = []
-    for i in range(len(A)):
-        diffs.append(A[i] - B[i])
-    return diffs
-
 def cv(df, alternative = 'two-sided', q = 0.05):
     """Finds the t critical value
 
