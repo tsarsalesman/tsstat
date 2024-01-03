@@ -154,3 +154,49 @@ def cohen(data1, data2, ddof1, ddof2):
     n = [len(data1), len(data2)]
     return (mean(data1) - mean(data2))/((((n[0]-1)*(std(data1, ddof=ddof1))**2)+
             ((n[1]-1)*(std(data2, ddof=ddof2))**2))/(n[0]+n[1]-2))**0.5)
+
+def diff(A, B):
+    """Finds the difference between two given lists of ints.
+
+    Params
+    ------
+    A : array_like
+        An array of integers
+    B : array_like
+        An array of integers
+
+    Returns
+    -------
+    Difference : array_like
+        The difference between each associated value.
+    """
+    diffs = []
+    for i in range(len(A)):
+        diffs.append(A[i] - B[i])
+    return diffs
+
+def cv(df, alternative = 'two-sided', q = 0.05):
+    """Finds the t critical value
+
+    Parameters
+    ----------
+    df : int
+        Degrees of freedom
+    alternative : str, optional
+        The type of t test based on alternative hypothesis, by default 'two-sided'
+    q : float, optional
+        The significant level, by default 0.05
+
+    Returns
+    -------
+    Critical value : float
+        The position of value on the curve
+    """
+    if (alternative == "greater"):
+        return t.ppf(1 - q, df)
+    if (alternative == "lesser"):
+        return t.ppf(q, df)
+    if (alternative == 'two-sided'):
+        return t.ppf(1 - q/2, df)
+    else:
+        return None
